@@ -14,6 +14,7 @@ class Box {
   }
 
   display(){
+    if(this.body.speed < 10){
     var pos =this.body.position;
     var angle = this.body.angle;
     push();
@@ -26,5 +27,11 @@ class Box {
     
     rect(0, 0, this.width, this.height);
     pop();
+    }else{
+      World.remove(world,this.body);
+      push();
+      this.visibility = this.visibility - 5;
+      pop();
+    }
   }
 }
